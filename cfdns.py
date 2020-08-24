@@ -261,7 +261,7 @@ def _parse_domains_args(domains: Iterable, domains_env: str):
             "Ambiguous domain list, use either argument list or CLOUDFLARE_DOMAINS environment variable, not both!"
         )
     elif domains_env:
-        domains = domains_env
+        domains = domains_env[0].split(" ")
 
     click.echo("Domains to update: " + ", ".join(domains))
     return domains
